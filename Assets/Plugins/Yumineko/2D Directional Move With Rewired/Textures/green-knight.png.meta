@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: efbe64dbb08237041b2e4217fbcbc786
+guid: 087347d7dd12a174283c486b16d825fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3575933800942601692
-    second: niwatori_hoko_0
+      213: 7212361248906449193
+    second: pipo-charachip022e_0
   - first:
-      213: 5672117791695389317
-    second: niwatori_hoko_1
+      213: -6247781943541100360
+    second: pipo-charachip022e_1
   - first:
-      213: 1119008421655562202
-    second: niwatori_hoko_2
+      213: 7210384164740976127
+    second: pipo-charachip022e_2
   - first:
-      213: -8734314456732650256
-    second: niwatori_hoko_3
+      213: 8546258960831467226
+    second: pipo-charachip022e_3
   - first:
-      213: 4779517887755587798
-    second: niwatori_hoko_4
+      213: 8945887066246035925
+    second: pipo-charachip022e_4
   - first:
-      213: -9158469181550823269
-    second: niwatori_hoko_5
+      213: 6441284827473120976
+    second: pipo-charachip022e_5
   - first:
-      213: 7439839455113473244
-    second: niwatori_hoko_6
+      213: 5360430799969434413
+    second: pipo-charachip022e_6
   - first:
-      213: 6161774456293154923
-    second: niwatori_hoko_7
+      213: 1491825745159846699
+    second: pipo-charachip022e_7
   - first:
-      213: 7573458904558096622
-    second: niwatori_hoko_8
+      213: 100789231408279577
+    second: pipo-charachip022e_8
   - first:
-      213: -2588736659634681375
-    second: niwatori_hoko_9
+      213: 559210748749762770
+    second: pipo-charachip022e_9
   - first:
-      213: -1491190700601558686
-    second: niwatori_hoko_10
+      213: -2442981316440553320
+    second: pipo-charachip022e_10
   - first:
-      213: -5983124226144112725
-    second: niwatori_hoko_11
+      213: 8096455066878358868
+    second: pipo-charachip022e_11
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -99,7 +99,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,18 +110,18 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -131,253 +131,253 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: niwatori_hoko_0
+      name: pipo-charachip022e_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 360
-        width: 72
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e95f47a74be8b0e4ca83cbaf329d2feb
-      internalID: -3575933800942601692
+      spriteID: 968837dae7974b5469aa43060bedbe39
+      internalID: 7212361248906449193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: niwatori_hoko_1
+      name: pipo-charachip022e_1
       rect:
         serializedVersion: 2
-        x: 72
-        y: 360
-        width: 72
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8c69d985045beec488bd7eeaf9003f2d
-      internalID: 5672117791695389317
+      spriteID: 5fd849588746156418aada3bc2dd6fd7
+      internalID: -6247781943541100360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: niwatori_hoko_2
+      name: pipo-charachip022e_2
       rect:
         serializedVersion: 2
-        x: 144
-        y: 360
-        width: 72
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 61369bc1166d9be4bb074e43b1c020e7
-      internalID: 1119008421655562202
+      spriteID: cfca7317976a2c44cac32e77d0b90871
+      internalID: 7210384164740976127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: niwatori_hoko_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 240
-        width: 72
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6b4ad65d101f9454f87451c5477cceb3
-      internalID: -8734314456732650256
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: niwatori_hoko_4
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 240
-        width: 72
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 19739d596c544174f81b87a54c4b5541
-      internalID: 4779517887755587798
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: niwatori_hoko_5
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 240
-        width: 72
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8faec6a0eb3f4e442ad62923d525a238
-      internalID: -9158469181550823269
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: niwatori_hoko_6
+      name: pipo-charachip022e_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 120
-        width: 72
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2ca69ff7cb2c9b347a11e739cc6cbded
-      internalID: 7439839455113473244
+      spriteID: 4614f64c1a6ca8048b7015292eb5571f
+      internalID: 8546258960831467226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: niwatori_hoko_7
+      name: pipo-charachip022e_4
       rect:
         serializedVersion: 2
-        x: 72
-        y: 120
-        width: 72
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2ecbe474cf2293b42ace5199daf1206b
-      internalID: 6161774456293154923
+      spriteID: 36158f6a5cd32214294ac3e829c11ffa
+      internalID: 8945887066246035925
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: niwatori_hoko_8
+      name: pipo-charachip022e_5
       rect:
         serializedVersion: 2
-        x: 144
-        y: 120
-        width: 72
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f1cf3bd9e439c5d42945230db25eda9d
-      internalID: 7573458904558096622
+      spriteID: e8fdeb394aca2d543953a3d2e7e3c35a
+      internalID: 6441284827473120976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: niwatori_hoko_9
+      name: pipo-charachip022e_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4180a0b22093b3f4795bf9f338a9fdfb
+      internalID: 5360430799969434413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-charachip022e_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d75248121b6e947a30084b24d83d37
+      internalID: 1491825745159846699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-charachip022e_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc24c6e5d6b18c5498e2c32ba6f081ea
+      internalID: 100789231408279577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pipo-charachip022e_9
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 72
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7466c4f401a124f458518e3e138d5c0c
-      internalID: -2588736659634681375
+      spriteID: ead432b67116bb04e9b384b24c3d8806
+      internalID: 559210748749762770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: niwatori_hoko_10
+      name: pipo-charachip022e_10
       rect:
         serializedVersion: 2
-        x: 72
+        x: 32
         y: 0
-        width: 72
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cd5b25ba1a4db264cb73af48fde8e685
-      internalID: -1491190700601558686
+      spriteID: 17f4869e09481d34ca0c9d940eae7b26
+      internalID: -2442981316440553320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: niwatori_hoko_11
+      name: pipo-charachip022e_11
       rect:
         serializedVersion: 2
-        x: 144
+        x: 64
         y: 0
-        width: 72
-        height: 120
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a0760eb0bed19b74d8c7eb2384d22167
-      internalID: -5983124226144112725
+      spriteID: 3e93262d70e9160478e8285bc1058737
+      internalID: 8096455066878358868
       vertices: []
       indices: 
       edges: []
@@ -385,7 +385,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: bf245b56aa07eaf4583cf137d780f592
+    spriteID: f006e7958cc5a6d489449b1dbb2806ab
     internalID: 0
     vertices: []
     indices: 

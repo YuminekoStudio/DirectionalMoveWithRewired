@@ -2,45 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
-public class OverrideSprite : MonoBehaviour 
-{
+[RequireComponent (typeof (SpriteRenderer))]
+public class OverrideSprite : MonoBehaviour {
 	private SpriteRenderer sr;
 
-	private static int idMainTex = Shader.PropertyToID("_MainTex");
+	private static int idMainTex = Shader.PropertyToID ("_MainTex");
 	private MaterialPropertyBlock block;
 
-	[SerializeField] 
+	[SerializeField]
 	private Texture texture = null;
-	public Texture overrideTexture{
-		get{ return texture; }
-		set{
-			texture = value; 
+	public Texture overrideTexture {
+		get { return texture; }
+		set {
+			texture = value;
 			if (block == null) {
 				Init ();
 			}
+
 			block.SetTexture (idMainTex, texture);
 		}
 	}
 
-	void Awake()
-	{
+	void Awake () {
 		Init ();
 		overrideTexture = texture;
 	}
 
-	void LateUpdate()
-	{
+	void LateUpdate () {
 		sr.SetPropertyBlock (block);
 	}
 
-	void OnValidate()
-	{
+	void OnValidate () {
 		overrideTexture = texture;
 	}
 
-	void Init()
-	{
+	void Init () {
 		block = new MaterialPropertyBlock ();
 		sr = GetComponent<SpriteRenderer> ();
 		sr.GetPropertyBlock (block);
