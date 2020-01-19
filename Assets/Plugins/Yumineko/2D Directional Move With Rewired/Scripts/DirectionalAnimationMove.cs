@@ -1,89 +1,47 @@
-﻿using System.Threading.Tasks;
-using Rewired;
+﻿using UniRx.Async;
 using UnityEngine;
 
-[RequireComponent (typeof (Animator))]
 [RequireComponent (typeof (Rigidbody2D))]
+[RequireComponent (typeof (Animator))]
+[RequireComponent (typeof (SpriteRenderer))]
 public class DirectionalAnimationMove : MonoBehaviour {
+    private DirectionalAnimator _danim;
+    public DirectionalAnimator DAnimator { get { return _danim ?? (_danim = new DirectionalAnimator (this, MyAnimator, animationSpeed)); } }
+
+    private GameObjectMover _mover;
+    public GameObjectMover Mover { get { return _mover ?? (_mover = new GameObjectMover (this, MyRigid2D, moveSpeed)); } }
+
     private Animator _anim;
-    private Animator Anim { get { return this._anim ? this._anim : this._anim = GetComponent<Animator> (); } }
+    public Animator MyAnimator { get { return _anim ?? (_anim = GetComponent<Animator> ()); } }
 
     private Rigidbody2D _rig;
-    private Rigidbody2D Rig { get { return this._rig ? this._rig : this._rig = GetComponent<Rigidbody2D> (); } }
+    public Rigidbody2D MyRigid2D { get { return _rig ?? (_rig = GetComponent<Rigidbody2D> ()); } }
 
-    Player player;
+    [SerializeField, Header ("移動速度")] private float moveSpeed = 2.0f;
+    [SerializeField, Header ("アニメ速度")] private float animationSpeed = 1.0f;
 
     /// <summary>
-    /// アニメーション方向。設定されている限り動き続ける。
+    /// アニメーション移動を開始する。一回呼べば自動で毎フレーム呼ばれる
     /// </summary>
-    public Vector2 AnimationVector { get; set; }
+    public void Play () {
+        DAnimator.Play ();
+        Mover.Play ();
+    }
+
+    public void Stop () {
+        DAnimator.Stop ();
+        Mover.Stop ();
+    }
+
     /// <summary>
-    /// 移動方向
+    /// 指定秒、指定方向へ歩く。ミリ秒で指定（1秒なら1000）
     /// </summary>
-    public Vector2 MoveVector { get; set; }
-
-    [SerializeField]
-    private float _moveSpeed;
-    public float MoveSpeed {
-        get { return _moveSpeed; }
-        set { _moveSpeed = value; }
-    }
-
-    [SerializeField]
-    private float _animationSpeed;
-    public float AnimationSpeed {
-        get { return _animationSpeed; }
-        set { _animationSpeed = value; }
-    }
-
-    // Start is called before the first frame update
-    void Start () {
-        player = ReInput.players.GetPlayer (0);
-    }
-
-    // Update is called once per frame
-    void Update () {
-        if (AnimationVector != Vector2.zero) {
-            if (Anim.speed == 0.0f) {
-                Play ();
-            }
-
-            Anim.SetFloat ("x", AnimationVector.x);
-            Anim.SetFloat ("y", AnimationVector.y);
-        } else {
-            Stop ();
-        }
-    }
-
-    void FixedUpdate () {
-        Rig.MovePosition (Rig.position + MoveVector * MoveSpeed);
-    }
-
-    void Stop () {
-        SetNormalize (0.9f);
-        AnimationVector = Vector2.zero;
-        MoveVector = Vector2.zero;
-        Anim.speed = 0.0f;
-    }
-
-    void Play () {
-        SetNormalize (0.0f);
-        Anim.speed = AnimationSpeed;
-    }
-
-    public async Task Walk (Vector2 dir, float sec) {
-        AnimationVector = dir;
-        MoveVector = dir;
+    /// <returns></returns>
+    public async UniTask Walk (Vector2 dir, int milliseconds) {
+        DAnimator.Direction = dir;
+        Mover.Direction = dir;
         Play ();
-        await Task.Delay ((int) (sec * 1000f));
+        await UniTask.Delay (milliseconds);
         Stop ();
-    }
-
-    /// <summary>
-    /// 現在のステートのNormalized Timeを指定値にする。
-    /// </summary>
-    void SetNormalize (float value) {
-        var info = Anim.GetCurrentAnimatorStateInfo (0);
-        Anim.Play (info.fullPathHash, 0, value);
     }
 }

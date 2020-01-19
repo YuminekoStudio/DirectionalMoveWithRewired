@@ -12,7 +12,7 @@ public class InputUtil {
     private Vector2 fixedDirection;
 
     /// <summary>
-    /// 移動方向を0か1に補正した値で返却。
+    /// スティック入力の移動方向を0か1に補正した値で返却。
     /// </summary>
     /// <param name="player"></param>
     /// <returns></returns>
@@ -21,13 +21,13 @@ public class InputUtil {
     }
 
     /// <summary>
-    /// 入力を監視して移動用のベクトルを返却
+    /// 移動用のアニメーションベクトルを返却
     /// </summary>
     /// <param name="player">入力対象</param>
     /// <returns>4方向またはVector2.zero</returns>
-    public Vector2 GetFixedDirection (Player player) {
+    public Vector2 GetAnimationDirection (Player player) {
         //  ボタン入力がない場合、以下を無視してスティック入力値を返す
-        Vector2 buttonVector = GetMoveButton (player);
+        Vector2 buttonVector = GetButtonDirection (player);
         if (buttonVector == Vector2.zero) return GetMoveAxisRaw (player);
 
         //  押下直後の方向を向く。押下直後でないなら何もしない
@@ -47,17 +47,26 @@ public class InputUtil {
         //  ボタンが離れた時に向きを更新
         if (player.GetButtonUp (HButton) || player.GetButtonUp (VButton) ||
             player.GetNegativeButtonUp (HButton) || player.GetNegativeButtonUp (VButton)) {
-            fixedDirection = GetMoveButton (player);
+            fixedDirection = GetButtonDirection (player);
         }
 
         return fixedDirection;
     }
 
     /// <summary>
-    /// 押され続けているボタンを元に向きを返却
+    /// 移動用のベクトルを返却
+    /// </summary>
+    public Vector2 GetMoveDirection (Player player) {
+        Vector2 result = GetButtonDirection (player);
+        if (result == Vector2.zero) result = GetMoveAxisRaw (player);
+        return result;
+    }
+
+    /// <summary>
+    /// 押され続けているボタンも含めた判定で向きを返却
     /// </summary>
     /// <returns></returns>
-    public Vector2 GetMoveButton (Player player) {
+    public Vector2 GetButtonDirection (Player player) {
         float x = player.GetButton (HButton) ? 1.0f : player.GetNegativeButton (HButton) ? -1.0f : 0.0f;
         float y = player.GetButton (VButton) ? 1.0f : player.GetNegativeButton (VButton) ? -1.0f : 0.0f;
         return new Vector2 (x, y);
