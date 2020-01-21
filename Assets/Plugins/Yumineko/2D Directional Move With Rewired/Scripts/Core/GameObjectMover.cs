@@ -18,7 +18,7 @@ namespace Yumineko.Directional {
         public MonoBehaviour TargetMono { get; set; }
 
         public Vector2 Direction { get; set; }
-        public float Speed { get; set; }
+        public float Speed { get; set; } = 2.0f;
 
         /// <summary>
         /// 移動しているかどうか。状態の変化はStart / Stopメソッドを使う
@@ -28,10 +28,9 @@ namespace Yumineko.Directional {
         /// <summary>
         /// 操作対象となるMonoBehabiourを指定すると、UniRxによって自動で毎フレーム更新処理が呼ばれる
         /// </summary>
-        public GameObjectMover (MonoBehaviour targetMono, Rigidbody2D targetRig = null, float speed = 1.0f) {
+        public GameObjectMover (MonoBehaviour targetMono, Rigidbody2D targetRig = null) {
             TargetMono = targetMono;
             TargetRig = targetRig;
-            Speed = speed;
             TargetMono?.FixedUpdateAsObservable ()
                 .Subscribe (_ => {
                     Update ();

@@ -13,18 +13,18 @@ namespace Yumineko.Directional {
         public Animator TargetAnim { get { return _anim ?? (_anim = TargetMono.GetComponent<Animator> ()); } set { _anim = value; } }
 
         /// <summary>
-        /// アニメーション方向
+        /// アニメーション方向。Vector2.zeroの代入は弾く
         /// </summary>
-        /// <value></value>
-        public Vector2 Direction { get; set; }
+        private Vector2 _direction = Vector2.right;
+        public Vector2 Direction { get { return _direction; } set { if (value != Vector2.zero) _direction = value; } }
 
         /// <summary>
         /// アニメーションの方向数の指定。2方向と4方向。
         /// </summary>
-        /// <value></value>
+
         public DirectionType DirType { get; set; }
 
-        public float Speed { get; set; }
+        public float Speed { get; set; } = 1.0f;
 
         /// <summary>
         /// 操作対象となるMonoBehaviour
@@ -32,12 +32,16 @@ namespace Yumineko.Directional {
         public MonoBehaviour TargetMono { get; set; }
 
         /// <summary>
+        /// アニメーションしているかどうか。状態の変化はStart / Stopメソッドを使う
+        /// </summary>
+        public bool IsPlaying { get; private set; }
+
+        /// <summary>
         /// 操作対象となるMonoBehabiourを指定すると、UniRxによって自動で毎フレーム更新処理が呼ばれる
         /// </summary>
-        public DirectionalAnimator (MonoBehaviour targetMono, Animator targetAnim = null, float speed = 1.0f) {
+        public DirectionalAnimator (MonoBehaviour targetMono, Animator targetAnim = null) {
             TargetMono = targetMono;
             TargetAnim = targetAnim;
-            Speed = speed;
             TargetMono?.UpdateAsObservable ()
                 .Subscribe (_ => {
                     Update ();
@@ -58,17 +62,17 @@ namespace Yumineko.Directional {
         public void Play () {
             SetNormalize (0.0f);
             TargetAnim.speed = Speed;
+            IsPlaying = true;
         }
 
         /// <summary>
         /// UniRxによって毎フレーム呼び出される
         /// </summary>
         void Update () {
-            if (Direction != Vector2.zero) {
+            if (IsPlaying) {
                 if (TargetAnim.speed == 0.0f) {
                     Play ();
                 }
-
                 SetParameter ();
             }
             else {
@@ -97,8 +101,8 @@ namespace Yumineko.Directional {
         /// </summary>
         public void Stop () {
             SetNormalize (0.9f);
-            Direction = Vector2.zero;
             TargetAnim.speed = 0.0f;
+            IsPlaying = false;
         }
     }
 }

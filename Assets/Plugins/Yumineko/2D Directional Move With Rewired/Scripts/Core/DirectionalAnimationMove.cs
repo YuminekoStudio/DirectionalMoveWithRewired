@@ -3,32 +3,30 @@ using UniRx.Async;
 using UnityEngine;
 
 namespace Yumineko.Directional {
-    [RequireComponent (typeof (Rigidbody2D))]
-    [RequireComponent (typeof (Animator))]
-    [RequireComponent (typeof (SpriteRenderer))]
-    public class DirectionalAnimationMove : MonoBehaviour {
+    public class DirectionalAnimationMove {
         private DirectionalAnimator _danim;
-        public DirectionalAnimator DAnimator { get { return _danim ?? (_danim = new DirectionalAnimator (this, MyAnimator, animationSpeed)); } }
+        public DirectionalAnimator DAnimator { get { return _danim ?? (_danim = new DirectionalAnimator (TargetCharacter, TargetAnimator)); } }
 
         private GameObjectMover _mover;
-        public GameObjectMover Mover { get { return _mover ?? (_mover = new GameObjectMover (this, MyRigid2D, moveSpeed)); } }
+        public GameObjectMover Mover { get { return _mover ?? (_mover = new GameObjectMover (TargetCharacter, TargetRigid2D)); } }
 
         private Animator _anim;
-        public Animator MyAnimator { get { return _anim ?? (_anim = GetComponent<Animator> ()); } }
+        public Animator TargetAnimator { get { return _anim ?? (_anim = TargetCharacter.GetComponent<Animator> ()); } }
 
         private Rigidbody2D _rig;
-        public Rigidbody2D MyRigid2D { get { return _rig ?? (_rig = GetComponent<Rigidbody2D> ()); } }
+        public Rigidbody2D TargetRigid2D { get { return _rig ?? (_rig = TargetCharacter.GetComponent<Rigidbody2D> ()); } }
 
-        [SerializeField, Header ("移動速度")] private float moveSpeed = 2.0f;
-        [SerializeField, Header ("アニメ速度")] private float animationSpeed = 1.0f;
+        public CharacterBase TargetCharacter { get; set; }
 
-        [SerializeField]
-        DirectionType DirType = DirectionType.Dir4;
-
-        void Start () {
+        public DirectionalAnimationMove (CharacterBase target) {
+            TargetCharacter = target;
             this.ObserveEveryValueChanged (_ => DirType)
-                .Subscribe (d => DAnimator.DirType = d);
+                .Subscribe (d => {
+                    DAnimator.DirType = d;
+                });
         }
+
+        public DirectionType DirType { get; set; }
 
         /// <summary>
         /// アニメーション移動を開始する。一回呼べば自動で毎フレーム呼ばれる
