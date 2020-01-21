@@ -1211,9 +1211,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 766544066}
+  - component: {fileID: 766544064}
   - component: {fileID: 766544063}
   - component: {fileID: 766544065}
-  - component: {fileID: 766544064}
   - component: {fileID: 766544068}
   - component: {fileID: 766544067}
   - component: {fileID: 766544069}
@@ -1238,6 +1238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   animationSpeed: 1
+  DirType: 1
 --- !u!95 &766544064
 Animator:
   serializedVersion: 3
