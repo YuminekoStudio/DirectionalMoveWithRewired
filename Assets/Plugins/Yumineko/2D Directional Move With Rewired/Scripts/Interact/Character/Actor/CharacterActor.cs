@@ -6,32 +6,32 @@ using UnityEngine.EventSystems;
 using Dbg = UnityEngine.Debug;
 
 namespace Yumineko.Directional {
-    public class CharacterActor : CharacterBase {
-        private float rayRange;
-        public void Interact (float range) {
-            if (EventSystem.current.IsPointerOverGameObject ()) return;
-            rayRange = (range > 0) ? range : Mathf.Infinity;
+    public class CharacterActor : CharacterBase, IInteractUser {
 
-            //レイヤーマスク作成
+        /// <summary>
+        /// Sprite方向へrangeの長さのRayを飛ばし、IInteractObjectにあたったらInvokeInteractを呼び出す
+        /// </summary>
+        public bool Interact (float range) {
+            //  UIをクリックしていたら失敗を返す
+            if (EventSystem.current.IsPointerOverGameObject ()) return false;
+            var rayRange = (range > 0) ? range : Mathf.Infinity;
+
+            //レイヤーマスク作成(8番を除外)
             int layerMask = ~(1 << 8);
-
             RaycastHit2D hit = Physics2D.Raycast (RayOrigin, DMove.DAnimator.Direction, range + Collider.Circle2D.radius, layerMask);
-            hit.collider?.GetComponent<IInteractObject> ()?.InvokeInteract ();
+#if UNITY_EDITOR
             Dbg.DrawRay (RayOrigin, DMove.DAnimator.Direction * range, Color.blue, 1, false);
-            Dbg.Log (DMove.DAnimator.Direction);
-            if (hit.collider != null) Dbg.Log ("Actorが" + hit.collider?.name + "をinteract");
+#endif
+
+            hit.collider?.GetComponent<IInteractObject> ()?.InvokeInteract ();
+
+            if (hit.collider != null) Dbg.Log (name + "が" + hit.collider?.name + "をInteract");
+            return (hit.collider != null);
         }
 
         /// <summary>
         /// Rayの開始地点
         /// </summary>
-        /// <value></value>
-        private Vector2 RayOrigin { get { return Collider.Rig.position + Collider.Circle2D.offset; } }
-
-        void Update () {
-            if (Input.GetMouseButtonDown (0)) {
-                Interact (20);
-            }
-        }
+        protected virtual Vector2 RayOrigin { get { return Collider.Rig.position + Collider.Circle2D.offset; } }
     }
 }

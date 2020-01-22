@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IInteractObject {
-    void InvokeInteract ();
+﻿namespace Yumineko.Directional {
+    public interface IInteractObject {
+        void InvokeInteract ();
+    }
 }

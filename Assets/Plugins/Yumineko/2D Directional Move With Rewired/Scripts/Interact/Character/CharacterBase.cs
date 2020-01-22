@@ -16,14 +16,19 @@ namespace Yumineko.Directional {
         [Header ("移動方向")] public DirectionType DirType = DirectionType.Dir4;
 
         void Start () {
+            //  移動速度が変更された時の更新を発行する
             this.ObserveEveryValueChanged (_ => MoveSpeed)
                 .Subscribe (m => {
                     DMove.Mover.Speed = m;
                 });
+
+            //  アニメーション速度が変更された時の更新を発行する
             this.ObserveEveryValueChanged (_ => AnimationSpeed)
                 .Subscribe (a => {
                     DMove.DAnimator.Speed = a;
                 });
+
+            //  移動タイプが変更された時の更新を発行する
             this.ObserveEveryValueChanged (_ => DirType)
                 .Subscribe (d => {
                     DMove.DirType = d;
